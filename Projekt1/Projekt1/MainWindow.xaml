@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="341.55" Width="502.079">
+    <Grid Background="LightGreen">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+            <Button Height="40" Width="100" Content="Dodaj" FontSize="20" Click="Button_Click"/>
+            <Button Height="40" Width="100" Content="Zapisz" FontSize="20" Click="Save_Click"/>
+            <Button Height="40" Width="100" Content="Załaduj" FontSize="20" Click="Load_Click"/>
+        </StackPanel>
+        <ListView x:Name="MainList" Grid.ColumnSpan="4" Background="LightGreen" FontSize="15" ItemsSource="{Binding MyItems}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Numer" Width="120" DisplayMemberBinding="{Binding Numer}"/>
+                    <GridViewColumn Header="Imie" Width="120" DisplayMemberBinding="{Binding Imie}" />
+                    <GridViewColumn Header="Nazwisko" Width="120" DisplayMemberBinding="{Binding Nazwisko}" />
+                    <GridViewColumn Header="Wiek" Width="120" DisplayMemberBinding="{Binding Wiek}" />
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="More_Click" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </Window>
