@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjektUO
+namespace Projekt1
 {
     public class Person
     {

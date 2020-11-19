@@ -1,0 +1,34 @@
+﻿<Window x:Class="Projekt1.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt1"
+        mc:Ignorable="d"
+        Title="Window1" Height="422.575" Width="555.679" Background="LightGreen">
+    <Grid Margin="20" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="1">
+            <Label Content="Indeks:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox Name="Numer" MinWidth="180" Margin="5" Text="{Binding Numer}"/>
+            <Label Content="Imię:" MinWidth="75" Margin="5"  FontSize="15"/>
+            <TextBox Name="Imie" MinWidth="180" Margin="5" Text="{Binding Imie}"/>
+            <Label Content="Nazwisko:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox Name="Nazwisko" MinWidth="180" Margin="5" Text="{Binding Nazwisko}" />
+            <Label Content="Wiek:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox  Name="Wiek" MinWidth="180" Margin="5" Text="{Binding Wiek}" />
+            <Label Content="Pozycja:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox  Name="Pozycja" MinWidth="180" Margin="5" Text="{Binding Pozycja}" />
+            <Label Content="Wzrost:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox  Name="Wzrost" MinWidth="180" Margin="5" Text="{Binding Wzrost}" />
+            <Label Content="Poczatek:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox  Name="Poczatek" MinWidth="180" Margin="5" Text="{Binding Poczatek}" />
+            <Label Content="Koniec:" MinWidth="75" Margin="5" FontSize="15"/>
+            <TextBox  Name="Koniec" MinWidth="180" Margin="5" Text="{Binding Koniec}" />
+            <Button x:Name="Dodaj" Content="Dodaj" Width="300" Click="Dodaj_Click" FontSize="15"/>
+        </WrapPanel>
+    </Grid>
+</Window>
