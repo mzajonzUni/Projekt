@@ -13,21 +13,21 @@
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Column="1">
             <Label Content="Numer:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox Name="Numer" MinWidth="180" Margin="5" Text="{Binding Numer}"/>
+            <TextBox Name="Numer" MinWidth="180" Margin="5"/>
             <Label Content="Imię:" MinWidth="75" Margin="5"  FontSize="15"/>
-            <TextBox Name="Imie" MinWidth="180" Margin="5" Text="{Binding Imie}"/>
+            <TextBox Name="Imie" MinWidth="180" Margin="5"/>
             <Label Content="Nazwisko:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox Name="Nazwisko" MinWidth="180" Margin="5" Text="{Binding Nazwisko}" />
+            <TextBox Name="Nazwisko" MinWidth="180" Margin="5"/>
             <Label Content="Wiek:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox  Name="Wiek" MinWidth="180" Margin="5" Text="{Binding Wiek}" />
+            <TextBox  Name="Wiek" MinWidth="180" Margin="5"/>
             <Label Content="Pozycja:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox  Name="Pozycja" MinWidth="180" Margin="5" Text="{Binding Pozycja}" />
+            <TextBox  Name="Pozycja" MinWidth="180" Margin="5"/>
             <Label Content="Wzrost:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox  Name="Wzrost" MinWidth="180" Margin="5" Text="{Binding Wzrost}" />
+            <TextBox  Name="Wzrost" MinWidth="180" Margin="5"/>
             <Label Content="Poczatek:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox  Name="Poczatek" MinWidth="180" Margin="5" Text="{Binding Poczatek}" />
+            <TextBox  Name="Poczatek" MinWidth="180" Margin="5"/>
             <Label Content="Koniec:" MinWidth="75" Margin="5" FontSize="15"/>
-            <TextBox  Name="Koniec" MinWidth="180" Margin="5" Text="{Binding Koniec}" />
+            <TextBox  Name="Koniec" MinWidth="180" Margin="5"/>
             <StackPanel Orientation="Horizontal">
                     <Button x:Name="Edit" Content="Zapisz" Width="150" Click="Edit_Click" FontSize="15"/>
                     <Button x:Name="Dodaj" Content="Usun" Width="150" Click="Delete_Click" FontSize="15"/>

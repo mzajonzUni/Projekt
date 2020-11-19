@@ -65,12 +65,11 @@ namespace Projekt1 {
         MainList.ItemsSource = null;
         MainList.ItemsSource = PersonList;
     }
-        private void More_Click(object sender, MouseButtonEventArgs e)
+        private void More_Click(object sender, RoutedEventArgs e)
         {
             int i = MainList.SelectedIndex;
-            MessageBox.Show(Convert.ToString(i));
-            //Window2 okno2 = new Window2(i, this);
-            //okno2.Show();
+            Window2 okno2 = new Window2(i, this);
+            okno2.Show();
         }
     }
 }

@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Projekt1
 {
-    /// <summary>
-    /// Logika interakcji dla klasy Window2.xaml
-    /// </summary>
     public partial class Window2 : Window 
     {
 
@@ -55,6 +52,7 @@ namespace Projekt1
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
         mw.PersonList.RemoveAt(mw.MainList.SelectedIndex);
+            this.Close();
     }
 }
 }
