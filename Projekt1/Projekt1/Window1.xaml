@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Column="1">
-            <Label Content="Indeks:" MinWidth="75" Margin="5" FontSize="15"/>
+            <Label Content="Numer:" MinWidth="75" Margin="5" FontSize="15"/>
             <TextBox Name="Numer" MinWidth="180" Margin="5" Text="{Binding Numer}"/>
             <Label Content="Imię:" MinWidth="75" Margin="5"  FontSize="15"/>
             <TextBox Name="Imie" MinWidth="180" Margin="5" Text="{Binding Imie}"/>
@@ -30,5 +30,10 @@
             <TextBox  Name="Koniec" MinWidth="180" Margin="5" Text="{Binding Koniec}" />
             <Button x:Name="Dodaj" Content="Dodaj" Width="300" Click="Dodaj_Click" FontSize="15"/>
         </WrapPanel>
+        <StackPanel>
+            <Label Content="Zdjecie:" HorizontalAlignment="Center"/>
+            <Image Name="imgDynamic" Margin="10" Height="275"/>
+            <Button x:Name="Otwórz"  Content="Otworz" Width="200" Height="23"  Click="Photo_Click" FontSize="15"/>
+        </StackPanel>
     </Grid>
 </Window>

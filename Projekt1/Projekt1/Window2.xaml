@@ -29,9 +29,14 @@
             <Label Content="Koniec:" MinWidth="75" Margin="5" FontSize="15"/>
             <TextBox  Name="Koniec" MinWidth="180" Margin="5"/>
             <StackPanel Orientation="Horizontal">
-                    <Button x:Name="Edit" Content="Zapisz" Width="150" Click="Edit_Click" FontSize="15"/>
-                    <Button x:Name="Dodaj" Content="Usun" Width="150" Click="Delete_Click" FontSize="15"/>
-             </StackPanel>
+                <Button x:Name="Edit" Content="Zapisz" Width="150" Click="Edit_Click" FontSize="15"/>
+                <Button x:Name="Dodaj" Content="Usun" Width="150" Click="Delete_Click" FontSize="15"/>
+            </StackPanel>
         </WrapPanel>
+        <StackPanel>
+            <Label Content="Zdjecie:" HorizontalAlignment="Center"/>
+            <Image Name="imgDynamic" Margin="10" Height="275"/>
+            <Button x:Name="Otwórz"  Content="Otworz" Width="200" Height="23" Click="Photo_Click" FontSize="15"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -16,9 +16,10 @@ namespace Projekt1
         public int Wzrost { get; set; }
         public string Poczatek { get; set; }
         public string Koniec { get; set; }
+        public string Url { get; set; }
 
 
-        public Person(int nNumer, string sImie, string sNazwisko, int nWiek, string sPozycja, int nWzrost, string sPoczatek, string sKoniec)
+        public Person(int nNumer, string sImie, string sNazwisko, int nWiek, string sPozycja, int nWzrost, string sPoczatek, string sKoniec,string sUrl)
         {
             Numer = nNumer;
             Imie = sImie;
@@ -28,6 +29,7 @@ namespace Projekt1
             Wzrost = nWzrost;
             Poczatek = sPoczatek;
             Koniec = sKoniec;
+            Url = sUrl;
         }
         public Person()
         {
