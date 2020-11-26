@@ -26,7 +26,7 @@ namespace Projekt1 {
     public MainWindow()
     {
         InitializeComponent();
-        Load();
+
     }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,8 +68,15 @@ namespace Projekt1 {
         private void More_Click(object sender, RoutedEventArgs e)
         {
             int i = MainList.SelectedIndex;
-            Window2 okno2 = new Window2(i, this);
-            okno2.Show();
+            if (i < 0)
+            {
+                MessageBox.Show("Nie wybrano elementu");
+            }
+            else
+            {
+                Window2 okno2 = new Window2(i, this);
+                okno2.Show();
+            }
         }
     }
 }

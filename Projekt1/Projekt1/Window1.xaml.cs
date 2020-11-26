@@ -19,6 +19,7 @@ namespace Projekt1
     public partial class Window1 : Window
     {
         private MainWindow mw;
+        private bool liczba;
         public Window1(MainWindow mainwindow)
         {
             mw = mainwindow;
@@ -53,12 +54,56 @@ namespace Projekt1
             bool canConvert2 = int.TryParse(numString2, out number2);
             if (canConvert2 != true)
             {
-                MessageBox.Show("Błędny Wiek");
+                MessageBox.Show("Błędny Wzrost");
+                return;
+            }
+            string numString3 = Poczatek.Text;
+            int number3 = 0;
+            bool canConvert3 = int.TryParse(numString3, out number3);
+            if (canConvert3 != true)
+            {
+                MessageBox.Show("Błędny początek");
+                return;
+            }
+            Sprawdz(Imie);
+            if (liczba == true)
+                return;
+            Sprawdz(Nazwisko);
+            if (liczba == true)
+                return;
+            Sprawdz(Pozycja);
+            if (liczba == true)
+                return;
+            if (imgDynamic.Source == null)
+            {
+                MessageBox.Show("Nie dodano zdjecia");
                 return;
             }
             mw.PersonList.Add(new Person(Convert.ToInt32(Numer.Text), Convert.ToString(Imie.Text), Convert.ToString(Nazwisko.Text), Convert.ToInt32(Wiek.Text), Convert.ToString(Pozycja.Text), Convert.ToInt32(Wzrost.Text), Convert.ToString(Poczatek.Text), Convert.ToString(Koniec.Text), Convert.ToString(imgDynamic.Source)));
             mw.MainList.ItemsSource = mw.PersonList;
             this.Close();
+        }
+        private void Sprawdz(TextBox x)
+        {
+            liczba = false;
+            string slowo = x.Text;
+            for(int i = 0; i != slowo.Length; i++)
+            {
+                char z = slowo[i];
+                if (((z >= 'a') && (z <= 'z')) || ((z >= 'A') && (z <= 'Z')))
+                {
+
+                }
+                else
+                {
+                    liczba = true;
+                }
+            }
+            if(liczba == true)
+            {
+                MessageBox.Show(x.Name + " zawiera liczbe");
+            }
+
         }
         private void Photo_Click(object sender, RoutedEventArgs e)
         {

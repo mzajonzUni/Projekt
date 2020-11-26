@@ -21,6 +21,7 @@ namespace Projekt1
 
         private MainWindow mw;
         public int a;
+        private bool error,liczba;
     public Window2(int i, MainWindow mainWindow)
     {
         mw = mainWindow;
@@ -44,9 +45,91 @@ namespace Projekt1
                 MessageBox.Show("Nie znaleziono zdjęcia");
             }
     }
+        private void Spr()
+        {
+            if (Numer.Text == null || Imie.Text == "" || Nazwisko.Text == "" || Wiek.Text == null || Pozycja.Text == "" || Wzrost.Text == null || Poczatek.Text == "" || Koniec.Text == "")
+            {
+                MessageBox.Show("Puste pole");
+                error = true;
+                return;
+            }
+            string numString = Numer.Text;
+            int number = 0;
+            bool canConvert = int.TryParse(numString, out number);
+            if (canConvert != true)
+            {
+                MessageBox.Show("Błędny Numer");
+                error = true;
+                return;
+            }
+            string numString1 = Wiek.Text;
+            int number1 = 0;
+            bool canConvert1 = int.TryParse(numString1, out number1);
+            if (canConvert1 != true)
+            {
+                MessageBox.Show("Błędny Wiek");
+                error = true;
+                return;
+            }
+            string numString2 = Wzrost.Text;
+            int number2 = 0;
+            bool canConvert2 = int.TryParse(numString2, out number2);
+            if (canConvert2 != true)
+            {
+                MessageBox.Show("Błędny Wzrost");
+                error = true;
+                return;
+            }
+            string numString3 = Poczatek.Text;
+            int number3 = 0;
+            bool canConvert3 = int.TryParse(numString3, out number3);
+            if (canConvert3 != true)
+            {
+                MessageBox.Show("Błędny początek");
+                error = true;
+                return;
+            }
+            Sprawdz(Imie);
+            Sprawdz(Nazwisko);
+            Sprawdz(Pozycja);
+            if (imgDynamic.Source == null)
+            {
+                MessageBox.Show("Nie dodano zdjecia");
+                error = true;
+                return;
+            }
+        }
+        private void Sprawdz(TextBox x)
+        {
+            liczba = false;
+            string slowo = x.Text;
+            for (int i = 0; i != slowo.Length; i++)
+            {
+                char z = slowo[i];
+                if (((z >= 'a') && (z <= 'z')) || ((z >= 'A') && (z <= 'Z')))
+                {
 
-    private void Edit_Click(object sender, RoutedEventArgs e)
+                }
+                else
+                {
+                    liczba = true;
+                }
+            }
+            if (liczba == true)
+            {
+                MessageBox.Show(x.Name + " zawiera liczbe");
+                error = true;
+            }
+
+        }
+        private void Edit_Click(object sender, RoutedEventArgs e)
     {
+            Spr();
+            if (error)
+            {
+                error = false;
+                return;
+            }
         mw.PersonList[a].Numer = Convert.ToInt32(Numer.Text);
         mw.PersonList[a].Imie = Convert.ToString(Imie.Text);
         mw.PersonList[a].Nazwisko = Convert.ToString(Nazwisko.Text);
@@ -59,7 +142,7 @@ namespace Projekt1
         mw.MainList.ItemsSource = null;
         mw.MainList.ItemsSource = mw.PersonList;
         this.Close();
-        MessageBox.Show("Edytowano pomyślnie");
+        MessageBox.Show("Zapisano pomyślnie");
     }
     private void Delete_Click(object sender, RoutedEventArgs e)
     {

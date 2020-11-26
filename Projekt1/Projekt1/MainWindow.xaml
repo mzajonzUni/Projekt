@@ -26,11 +26,6 @@
                     <GridViewColumn Header="Wiek" Width="120" DisplayMemberBinding="{Binding Wiek}" />
                 </GridView>
             </ListView.View>
-            <!--<ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="More_Click" />
-                </Style>
-            </ListView.ItemContainerStyle>-->
         </ListView>
     </Grid>
 </Window>
