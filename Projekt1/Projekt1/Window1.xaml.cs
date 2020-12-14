@@ -79,9 +79,9 @@ namespace Projekt1
                 MessageBox.Show("Nie dodano zdjecia");
                 return;
             }
-            mw.PersonList.Add(new Person(Convert.ToInt32(Numer.Text), Convert.ToString(Imie.Text), Convert.ToString(Nazwisko.Text), Convert.ToInt32(Wiek.Text), Convert.ToString(Pozycja.Text), Convert.ToInt32(Wzrost.Text), Convert.ToString(Poczatek.Text), Convert.ToString(Koniec.Text), Convert.ToString(imgDynamic.Source)));
-            mw.MainList.ItemsSource = mw.PersonList;
-            this.Close();
+            //mw.PersonList.Add(new Person(Convert.ToInt32(Numer.Text), Convert.ToString(Imie.Text), Convert.ToString(Nazwisko.Text), Convert.ToInt32(Wiek.Text), Convert.ToString(Pozycja.Text), Convert.ToInt32(Wzrost.Text), Convert.ToString(Poczatek.Text), Convert.ToString(Koniec.Text), Convert.ToString(imgDynamic.Source)));
+            //mw.MainList.ItemsSource = mw.PersonList;
+            //this.Close();
         }
         private void Sprawdz(TextBox x)
         {

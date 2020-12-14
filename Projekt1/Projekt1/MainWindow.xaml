@@ -5,27 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="341.55" Width="502.079">
+        Title="MainWindow" Height="291.999" Width="584">
     <Grid Background="LightGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="552*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <StackPanel VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Orientation="Horizontal" Grid.ColumnSpan="2">
             <Button Height="40" Width="100" Content="Dodaj" FontSize="20" Click="Button_Click"/>
             <Button Height="40" Width="100" Content="Zapisz" FontSize="20" Click="Save_Click"/>
             <Button Height="40" Width="100" Content="Załaduj" FontSize="20" Click="Load_Click"/>
             <Button Height="40" Width="100" Content="Podgląd" FontSize="20" Click="More_Click"/>
         </StackPanel>
-        <ListView x:Name="MainList" Grid.ColumnSpan="4" Background="LightGreen" FontSize="15" ItemsSource="{Binding MyItems}">
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Width="578">
+                <TextBlock Text="ID" Margin="2" Width="100" TextAlignment="Center"/>
+                <TextBlock Text="Numer" Margin="2" Width="100" TextAlignment="Center"/>
+                <TextBlock Text="Imie" Margin="2" Width="100" TextAlignment="Center"/>
+                <TextBlock Text="Nazwisko" Margin="2" Width="100" TextAlignment="Center"/>
+                <TextBlock Text="Wiek" Margin="2" Width="100" TextAlignment="Center"/>
+            </StackPanel>
+
+            <ListBox Name="lstBox" HorizontalAlignment="Left" VerticalAlignment="Center" Background="#fff" Height="203" Width="577" Margin="0,0,-1,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Text="{Binding ID}" Margin="2" Width="100" />
+                            </Border>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Text="{Binding Numer}" Margin="2" Width="100"/>
+                            </Border>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Text="{Binding Imie}" Margin="2" Width="100"/>
+                            </Border>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Text="{Binding Nazwisko}" Margin="2" Width="100"/>
+                            </Border>
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <TextBlock Text="{Binding Wiek}" Margin="2" Width="100"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <!--<ListView x:Name="MainList" Background="LightGreen" FontSize="15" ItemsSource="{Binding MyItems}" Margin="-3,1,3,39" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Header="Numer" Width="120" DisplayMemberBinding="{Binding Numer}"/>
                     <GridViewColumn Header="Imie" Width="120" DisplayMemberBinding="{Binding Imie}" />
                     <GridViewColumn Header="Nazwisko" Width="120" DisplayMemberBinding="{Binding Nazwisko}" />
                     <GridViewColumn Header="Wiek" Width="120" DisplayMemberBinding="{Binding Wiek}" />
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
     </Grid>
 </Window>

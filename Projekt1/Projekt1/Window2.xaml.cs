@@ -20,30 +20,31 @@ namespace Projekt1
     {
 
         private MainWindow mw;
-        public int a;
+        public int a,o=5;
         private bool error,liczba;
-    public Window2(int i, MainWindow mainWindow)
+        private string blad;
+        public Window2(int i, MainWindow mainWindow)
     {
         mw = mainWindow;
         a = i;
         InitializeComponent();
-        Numer.Text = Convert.ToString(mw.PersonList[i].Numer);
-        Imie.Text = Convert.ToString(mw.PersonList[i].Imie);
-        Nazwisko.Text = Convert.ToString(mw.PersonList[i].Nazwisko);
-        Wiek.Text = Convert.ToString(mw.PersonList[i].Wiek);
-        Pozycja.Text = Convert.ToString(mw.PersonList[i].Pozycja);
-        Wzrost.Text = Convert.ToString(mw.PersonList[i].Wzrost);
-        Poczatek.Text = Convert.ToString(mw.PersonList[i].Poczatek);
-        Koniec.Text = Convert.ToString(mw.PersonList[i].Koniec);
-            try
-            {
-                Uri fileUri = new Uri(mw.PersonList[i].Url);
-                imgDynamic.Source = new BitmapImage(fileUri);
-            }
-            catch
-            {
-                MessageBox.Show("Nie znaleziono zdjęcia");
-            }
+        //Numer.Text = Convert.ToString(mw.PersonList[i].Numer);
+        //Imie.Text = Convert.ToString(mw.PersonList[i].Imie);
+        //Nazwisko.Text = Convert.ToString(mw.PersonList[i].Nazwisko);
+        //Wiek.Text = Convert.ToString(mw.PersonList[i].Wiek);
+        //Pozycja.Text = Convert.ToString(mw.PersonList[i].Pozycja);
+        //Wzrost.Text = Convert.ToString(mw.PersonList[i].Wzrost);
+        //Poczatek.Text = Convert.ToString(mw.PersonList[i].Poczatek);
+        //Koniec.Text = Convert.ToString(mw.PersonList[i].Koniec);
+        //    try
+        //    {
+        //        Uri fileUri = new Uri(mw.PersonList[i].Url);
+        //        imgDynamic.Source = new BitmapImage(fileUri);
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Nie znaleziono zdjęcia");
+        //    }
     }
         private void Spr()
         {
@@ -58,45 +59,41 @@ namespace Projekt1
             bool canConvert = int.TryParse(numString, out number);
             if (canConvert != true)
             {
-                MessageBox.Show("Błędny Numer");
                 error = true;
-                return;
+                blad += "Bledny numer" + "\r\n";
             }
             string numString1 = Wiek.Text;
             int number1 = 0;
             bool canConvert1 = int.TryParse(numString1, out number1);
             if (canConvert1 != true)
             {
-                MessageBox.Show("Błędny Wiek");
+                blad += "Błędny Wiek" + "\r\n";
                 error = true;
-                return;
             }
             string numString2 = Wzrost.Text;
             int number2 = 0;
             bool canConvert2 = int.TryParse(numString2, out number2);
             if (canConvert2 != true)
             {
-                MessageBox.Show("Błędny Wzrost");
+                blad += "Błędny Wzrost" + "\r\n";
                 error = true;
-                return;
             }
             string numString3 = Poczatek.Text;
             int number3 = 0;
             bool canConvert3 = int.TryParse(numString3, out number3);
             if (canConvert3 != true)
             {
-                MessageBox.Show("Błędny początek");
+
+                blad += "Błędny początek" + "\r\n";
                 error = true;
-                return;
             }
             Sprawdz(Imie);
             Sprawdz(Nazwisko);
             Sprawdz(Pozycja);
             if (imgDynamic.Source == null)
             {
-                MessageBox.Show("Nie dodano zdjecia");
+                blad += "Nie dodano zdjecia" + "\r\n";
                 error = true;
-                return;
             }
         }
         private void Sprawdz(TextBox x)
@@ -117,7 +114,8 @@ namespace Projekt1
             }
             if (liczba == true)
             {
-                MessageBox.Show(x.Name + " zawiera liczbe");
+                blad += x.Name + " zawiera liczbe" + "\r\n";
+                o++;
                 error = true;
             }
 
@@ -127,27 +125,29 @@ namespace Projekt1
             Spr();
             if (error)
             {
+                MessageBox.Show(blad);
                 error = false;
+                blad = "";
                 return;
             }
-        mw.PersonList[a].Numer = Convert.ToInt32(Numer.Text);
-        mw.PersonList[a].Imie = Convert.ToString(Imie.Text);
-        mw.PersonList[a].Nazwisko = Convert.ToString(Nazwisko.Text);
-        mw.PersonList[a].Wiek = Convert.ToInt32(Wiek.Text);
-        mw.PersonList[a].Pozycja = Convert.ToString(Pozycja.Text);
-        mw.PersonList[a].Wzrost = Convert.ToInt32(Wzrost.Text);
-        mw.PersonList[a].Poczatek = Convert.ToString(Poczatek.Text);
-        mw.PersonList[a].Koniec = Convert.ToString(Poczatek.Text);
-        mw.PersonList[a].Url = Convert.ToString(imgDynamic.Source);
-        mw.MainList.ItemsSource = null;
-        mw.MainList.ItemsSource = mw.PersonList;
-        this.Close();
-        MessageBox.Show("Zapisano pomyślnie");
+        //mw.PersonList[a].Numer = Convert.ToInt32(Numer.Text);
+        //mw.PersonList[a].Imie = Convert.ToString(Imie.Text);
+        //mw.PersonList[a].Nazwisko = Convert.ToString(Nazwisko.Text);
+        //mw.PersonList[a].Wiek = Convert.ToInt32(Wiek.Text);
+        //mw.PersonList[a].Pozycja = Convert.ToString(Pozycja.Text);
+        //mw.PersonList[a].Wzrost = Convert.ToInt32(Wzrost.Text);
+        //mw.PersonList[a].Poczatek = Convert.ToString(Poczatek.Text);
+        //mw.PersonList[a].Koniec = Convert.ToString(Poczatek.Text);
+        //mw.PersonList[a].Url = Convert.ToString(imgDynamic.Source);
+        //mw.MainList.ItemsSource = null;
+        //mw.MainList.ItemsSource = mw.PersonList;
+        //this.Close();
+        //MessageBox.Show("Zapisano pomyślnie");
     }
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
-        mw.PersonList.RemoveAt(mw.MainList.SelectedIndex);
-            this.Close();
+        //mw.PersonList.RemoveAt(mw.MainList.SelectedIndex);
+        //    this.Close();
     }
         private void Photo_Click(object sender, RoutedEventArgs e)
         {

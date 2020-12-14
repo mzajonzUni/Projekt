@@ -8,6 +8,7 @@ namespace Projekt1
 {
     public class Person
     {
+        public int ID { get; set; }
         public int Numer { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
