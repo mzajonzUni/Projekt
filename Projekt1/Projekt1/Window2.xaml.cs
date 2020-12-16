@@ -18,7 +18,7 @@ namespace Projekt1
 {
     public partial class Window2 : Window 
     {
-
+        private MainWindow mOkno = new MainWindow();
         private MainWindow mw;
         public int a,o=5;
         private bool error,liczba;
@@ -26,29 +26,30 @@ namespace Projekt1
         public Window2(int i, MainWindow mainWindow)
     {
         mw = mainWindow;
-        a = i;
+        a = mw.pe1[i].ID;
+
         InitializeComponent();
-        //Numer.Text = Convert.ToString(mw.PersonList[i].Numer);
-        //Imie.Text = Convert.ToString(mw.PersonList[i].Imie);
-        //Nazwisko.Text = Convert.ToString(mw.PersonList[i].Nazwisko);
-        //Wiek.Text = Convert.ToString(mw.PersonList[i].Wiek);
-        //Pozycja.Text = Convert.ToString(mw.PersonList[i].Pozycja);
-        //Wzrost.Text = Convert.ToString(mw.PersonList[i].Wzrost);
-        //Poczatek.Text = Convert.ToString(mw.PersonList[i].Poczatek);
-        //Koniec.Text = Convert.ToString(mw.PersonList[i].Koniec);
-        //    try
-        //    {
-        //        Uri fileUri = new Uri(mw.PersonList[i].Url);
-        //        imgDynamic.Source = new BitmapImage(fileUri);
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Nie znaleziono zdjęcia");
-        //    }
-    }
+        Numer.Text = Convert.ToString(mw.pe1[i].Numer);
+        Imie.Text = Convert.ToString(mw.pe1[i].Imie);
+        Nazwisko.Text = Convert.ToString(mw.pe1[i].Nazwisko);
+        Wiek.Text = Convert.ToString(mw.pe1[i].Wiek);
+        Pozycja.Text = Convert.ToString(mw.pe1[i].Pozycja);
+        Wzrost.Text = Convert.ToString(mw.pe1[i].Wzrost);
+        Poczatek.Text = Convert.ToString(mw.pe1[i].Poczatek);
+        Koniec.Text = Convert.ToString(mw.pe1[i].Koniec);
+            try
+            {
+                Uri fileUri = new Uri(mw.pe1[i].Url);
+                imgDynamic.Source = new BitmapImage(fileUri);
+            }
+            catch
+            {
+                MessageBox.Show("Nie znaleziono zdjęcia");
+            }
+        }
         private void Spr()
         {
-            if (Numer.Text == null || Imie.Text == "" || Nazwisko.Text == "" || Wiek.Text == null || Pozycja.Text == "" || Wzrost.Text == null || Poczatek.Text == "" || Koniec.Text == "")
+            if (Numer.Text == null || Imie.Text == "" || Nazwisko.Text == "" || Wiek.Text == null || Pozycja.Text == "" || Wzrost.Text == null || Poczatek.Text == "")
             {
                 MessageBox.Show("Puste pole");
                 error = true;
@@ -122,33 +123,55 @@ namespace Projekt1
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
     {
-            Spr();
-            if (error)
-            {
-                MessageBox.Show(blad);
-                error = false;
-                blad = "";
-                return;
-            }
-        //mw.PersonList[a].Numer = Convert.ToInt32(Numer.Text);
-        //mw.PersonList[a].Imie = Convert.ToString(Imie.Text);
-        //mw.PersonList[a].Nazwisko = Convert.ToString(Nazwisko.Text);
-        //mw.PersonList[a].Wiek = Convert.ToInt32(Wiek.Text);
-        //mw.PersonList[a].Pozycja = Convert.ToString(Pozycja.Text);
-        //mw.PersonList[a].Wzrost = Convert.ToInt32(Wzrost.Text);
-        //mw.PersonList[a].Poczatek = Convert.ToString(Poczatek.Text);
-        //mw.PersonList[a].Koniec = Convert.ToString(Poczatek.Text);
-        //mw.PersonList[a].Url = Convert.ToString(imgDynamic.Source);
-        //mw.MainList.ItemsSource = null;
-        //mw.MainList.ItemsSource = mw.PersonList;
-        //this.Close();
-        //MessageBox.Show("Zapisano pomyślnie");
-    }
+            ////Spr();
+            //if (error)
+            //{
+            //    MessageBox.Show(blad);
+            //    error = false;
+            //    blad = "";
+            //    return;
+            //}
+            //mw.PersonList[a].Numer = Convert.ToInt32(Numer.Text);
+            //mw.PersonList[a].Imie = Convert.ToString(Imie.Text);
+            //mw.PersonList[a].Nazwisko = Convert.ToString(Nazwisko.Text);
+            //mw.PersonList[a].Wiek = Convert.ToInt32(Wiek.Text);
+            //mw.PersonList[a].Pozycja = Convert.ToString(Pozycja.Text);
+            //mw.PersonList[a].Wzrost = Convert.ToInt32(Wzrost.Text);
+            //mw.PersonList[a].Poczatek = Convert.ToString(Poczatek.Text);
+            //mw.PersonList[a].Koniec = Convert.ToString(Poczatek.Text);
+            //mw.PersonList[a].Url = Convert.ToString(imgDynamic.Source);
+            //mw.MainList.ItemsSource = null;
+            //mw.MainList.ItemsSource = mw.PersonList;
+            //this.Close();
+            //MessageBox.Show("Zapisano pomyślnie");
+            mw.sql = "UPDATE Pilkarze SET " +
+            "Numer = '" + Numer.Text + "', " +
+            "Imie = '" + Imie.Text + "', " +
+            "Nazwisko = '" + Nazwisko.Text + "', " +
+            "Wiek = '" + Wiek.Text + "', " +
+            "Pozycja = '" + Pozycja.Text + "', " +
+            "Wzrost = '" + Wzrost.Text + "', " +
+            "Poczatek = '" + Poczatek.Text + "', " +
+            "Koniec = '" + Koniec.Text + "', " +
+            "Zdjecie = '" + imgDynamic.Source.ToString() + "' " +
+            "WHERE ID = '" + a + "'";
+
+            mw.com = new System.Data.SqlClient.SqlCommand(mw.sql, mw.cnn);
+            mw.adapter.UpdateCommand = new System.Data.SqlClient.SqlCommand(mw.sql, mw.cnn);
+            mw.adapter.UpdateCommand.ExecuteNonQuery();
+            this.Close();
+            
+        }
     private void Delete_Click(object sender, RoutedEventArgs e)
     {
-        //mw.PersonList.RemoveAt(mw.MainList.SelectedIndex);
-        //    this.Close();
-    }
+            mw.sql = "DELETE Pilkarze WHERE ID='"+ a +"'";
+
+            mw.com = new System.Data.SqlClient.SqlCommand(mw.sql, mw.cnn);
+            mw.adapter.DeleteCommand = new System.Data.SqlClient.SqlCommand(mw.sql, mw.cnn);
+            mw.adapter.DeleteCommand.ExecuteNonQuery();
+            mOkno.Show();
+            this.Close();
+        }
         private void Photo_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
